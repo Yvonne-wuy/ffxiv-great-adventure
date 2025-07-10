@@ -1,3 +1,6 @@
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "1"
+
 # ========== 第三方库 ==========
 import pygame
 from pygame.sprite import Group
@@ -20,7 +23,11 @@ import game_functions as gf
     
 def run_game():
     # 初始化游戏&设置和屏幕对象
-    pygame.init()
+    pygame.mixer.pre_init(44100, -16, 2, 512)
+    pygame.mixer.init()
+    pygame.font.init()
+    pygame.display.init()
+
     assets = AssetManager()
     ai_settings = Settings(assets)
     screen = pygame.display.set_mode(
