@@ -1,0 +1,13 @@
+# 屏幕基础参数
+SCREEN_WIDTH = 1500
+SCREEN_HEIGHT = 810
+FLOOR_HEIGHT = SCREEN_HEIGHT - 250
+
+# 分数系统
+SCORE_RATE = 30
+
+# 颜色定义
+BG_COLOR = (228, 175, 0)
+
+# 游戏名称
+WINDOW_TITLE = "FF XIV - Great Adventure"
