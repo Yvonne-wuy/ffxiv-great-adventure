@@ -90,3 +90,12 @@ python "FF XIV - Great Adventure.py"
 - `bgm_effects/`：音效素材
 - `font/`：字体文件
 - `sprite_frame/`：精灵图动画帧
+
+## | 游戏截图
+
+![封面图](screenshots/open_sample.gif)
+![骑士](screenshots/prd_sample.gif)
+![学者](screenshots/sch_sample.gif)
+![召唤](screenshots/smn_sample.gif)
+![战士](screenshots/war_sample.gif)
+![黑魔](screenshots/blm_sample.gif)
