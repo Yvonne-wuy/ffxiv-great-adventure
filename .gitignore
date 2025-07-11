@@ -197,6 +197,5 @@ __pycache__/
 moglin-test-frame/
 *.pyc
 .DS_Store
-*.zip
 *.rar
 *.psd
