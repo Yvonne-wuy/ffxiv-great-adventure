@@ -1,4 +1,6 @@
 import pygame
+import sys
+import os
 from pygame.surface import Surface
 from typing import Any, Optional
 
@@ -120,6 +122,16 @@ class Settings():
 
 
 
+def resource_path(relative_path):
+    """PyInstaller 兼容的路径获取"""
+    try:
+        # PyInstaller 创建的临时文件夹路径
+        base_path = sys._MEIPASS # type: ignore[attr-defined]
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
 class AssetManager():
     def __init__(self):
         self.images_paths = {
@@ -217,7 +229,7 @@ class AssetManager():
             for key, val in d.items():
                 flat_key = f'{prefix}.{key}' if prefix else key
                 if isinstance(val, str) and val.endswith(('.png', '.jpg', '.jpeg')):
-                    self.loaded_images[flat_key] = pygame.image.load(val).convert_alpha()
+                    self.loaded_images[flat_key] = pygame.image.load(resource_path(val)).convert_alpha()
                 elif isinstance(val, (int, float)):
                     self.loaded_images[flat_key] = val
                 elif isinstance(val, dict):
@@ -227,7 +239,7 @@ class AssetManager():
             for key, val in d.items():
                 flat_key = f'{prefix}.{key}' if prefix else key
                 if isinstance(val, str) and val.endswith(('.wav', '.ogg', '.mp3')):
-                    self.loaded_sounds[flat_key] = pygame.mixer.Sound(val)
+                    self.loaded_sounds[flat_key] = pygame.mixer.Sound(resource_path(val))
                 elif isinstance(val, (int, float)):
                     self.loaded_sounds[flat_key] = val
                 elif isinstance(val, dict):

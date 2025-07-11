@@ -1,6 +1,9 @@
 import pygame
 import random
 from tools import AnimatedSprite as Sp
+from settings import resource_path
+
+
 
 class Items:
     def __init__(self, ai_settings):
@@ -143,8 +146,7 @@ class Items:
     class Score:
         def __init__(self, ai_settings):
             self.ai_settings = ai_settings
-            self.font_large = pygame.font.Font("font/Marker Felt.ttf", 300)
-
+            self.font_large = pygame.font.Font(resource_path("font/Marker Felt.ttf"), 300)
         def calculate_score(self):
             if self.ai_settings.final_score is not None:
                 return self.ai_settings.final_score
